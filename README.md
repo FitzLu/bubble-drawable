@@ -1,5 +1,5 @@
 # BubbleDrawable
-Build a drawable with triangle indication in android
+Create a drawable with a triangle arrow on Android
 
 [![](https://jitpack.io/v/FitzLu/bubble-drawable.svg)](https://jitpack.io/#FitzLu/bubble-drawable)
 
