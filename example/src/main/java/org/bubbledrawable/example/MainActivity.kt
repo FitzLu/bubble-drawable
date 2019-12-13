@@ -40,17 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        val drawable = BubbleDrawable().also {
-            it.setTriangleWidth(resources.getDimension(R.dimen.bbd_triangle_width))
-            it.setTriangleHeight(resources.getDimension(R.dimen.bbd_triangle_height))
-            it.setCorners(floatArrayOf(resources.getDimension(R.dimen.bbd_dp_10), resources.getDimension(R.dimen.bbd_dp_10),
-                resources.getDimension(R.dimen.bbd_dp_10), resources.getDimension(R.dimen.bbd_dp_10)))
-            it.setStrokeColor(Color.BLUE)
-            it.setStrokeWidth(resources.getDimension(R.dimen.bbd_dp_4))
-            it.setSolidColor(Color.GREEN)
-            it.setTriangleBias(0.618f)
-            it.setTriangleLocation(BubbleDrawable.TriangleLocation.locTop)
-        }
+        bubbleContent?.background = createBubbleDrawable(BubbleDrawable.TriangleLocation.locBottom, 0.5f)
     }
 
     private fun createBubbleDrawable(triLoc: Int, bias: Float): BubbleDrawable {

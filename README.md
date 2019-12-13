@@ -30,7 +30,7 @@ allprojects {
 }
 
 dependencies {
-	implementation 'com.github.FitzLu:bubble-drawable:1.0'
+	implementation 'com.github.FitzLu:bubble-drawable:1.0.1'
 }
 ```
 

@@ -104,37 +104,18 @@ class BubbleDrawable: Drawable() {
         mPath.arcTo(leftTopRectF, 180f, 90f)
 
         if (triangleLoc == TriangleLocation.locTop) {
-            mPath.lineTo(
-                bounds.left + (bounds.width() - strokeWidth - triangleWidth) * triangleBias,
-                bounds.top + triangleHeight)
-            mPath.lineTo(
-                bounds.left + (bounds.width() - strokeWidth - triangleWidth) * triangleBias + triangleWidth / 2,
-                bounds.top.toFloat()
-            )
-            mPath.lineTo(
-                bounds.left + (bounds.width() - strokeWidth - triangleWidth) * triangleBias + triangleWidth,
-                bounds.top + triangleHeight
-            )
+            mPath.lineTo(bounds.left + bounds.width() * triangleBias - triangleWidth / 2, bounds.top + triangleHeight)
+            mPath.lineTo(bounds.left + bounds.width() * triangleBias, bounds.top.toFloat())
+            mPath.lineTo(bounds.left + bounds.width() * triangleBias + triangleWidth / 2, bounds.top + triangleHeight)
         }
-        mPath.lineTo(
-            rightTopRectF.left + cornersRadius[rightTop],
-            rightTopRectF.top)
+        mPath.lineTo(rightTopRectF.left + cornersRadius[rightTop], rightTopRectF.top)
 
         mPath.arcTo(rightTopRectF, 270f, 90f)
 
         if (triangleLoc == TriangleLocation.locRight) {
-            mPath.lineTo(
-                rightTopRectF.right,
-                (bounds.top + (bounds.height() - triangleHeight) * triangleBias)
-            )
-            mPath.lineTo(
-                bounds.right.toFloat() - strokeWidth,
-                (bounds.top + (bounds.height() - triangleHeight) * triangleBias) + triangleHeight / 2
-            )
-            mPath.lineTo(
-                rightBottomRectF.right,
-                (bounds.top + (bounds.height() - triangleHeight) * triangleBias) + triangleHeight
-            )
+            mPath.lineTo(rightTopRectF.right, bounds.top + bounds.height() * triangleBias - triangleHeight / 2)
+            mPath.lineTo(bounds.right.toFloat() - strokeWidth, bounds.top + bounds.height() * triangleBias)
+            mPath.lineTo(rightBottomRectF.right, bounds.top + bounds.height() * triangleBias + triangleHeight / 2)
         }
         mPath.lineTo(
             rightBottomRectF.right,
@@ -143,15 +124,9 @@ class BubbleDrawable: Drawable() {
         mPath.arcTo(rightBottomRectF, 0f, 90f)
 
         if (triangleLoc == TriangleLocation.locBottom){
-            mPath.lineTo(
-                (rightBottomRectF.left + cornersRadius[rightBottom]) - (bounds.width() - strokeWidth - triangleWidth) * triangleBias,
-                rightBottomRectF.bottom)
-            mPath.lineTo(
-                (rightBottomRectF.left + cornersRadius[rightBottom]) - (bounds.width() - strokeWidth - triangleWidth) * triangleBias - triangleWidth / 2f,
-                bounds.bottom - strokeWidth)
-            mPath.lineTo((
-                    rightBottomRectF.left + cornersRadius[rightBottom]) - (bounds.width() - strokeWidth - triangleWidth) * triangleBias - triangleWidth,
-                rightBottomRectF.bottom)
+            mPath.lineTo(bounds.right - bounds.width() * triangleBias + triangleWidth / 2, rightBottomRectF.bottom)
+            mPath.lineTo(bounds.right - bounds.width() * triangleBias, bounds.bottom - strokeWidth)
+            mPath.lineTo(bounds.right - bounds.width() * triangleBias - triangleWidth / 2, rightBottomRectF.bottom)
         }
         mPath.lineTo(
             leftBottomRectF.right - cornersRadius[leftBottom],
@@ -162,13 +137,10 @@ class BubbleDrawable: Drawable() {
         if (triangleLoc == TriangleLocation.locLeft){
             mPath.lineTo(
                 leftBottomRectF.left,
-                leftBottomRectF.bottom - (bounds.height() - strokeWidth - triangleHeight) * triangleBias)
+                leftBottomRectF.bottom - bounds.height() * triangleBias + triangleHeight / 2)
+            mPath.lineTo(bounds.left.toFloat(), leftBottomRectF.bottom - bounds.height() * triangleBias)
             mPath.lineTo(
-                bounds.left.toFloat(),
-                (leftBottomRectF.bottom - (bounds.height() - strokeWidth - triangleHeight) * triangleBias) - triangleHeight / 2f)
-            mPath.lineTo(
-                leftTopRectF.left,
-                (leftBottomRectF.bottom - (bounds.height() - strokeWidth - triangleHeight) * triangleBias) - triangleHeight)
+                leftTopRectF.left, leftBottomRectF.bottom - bounds.height() * triangleBias - triangleHeight / 2)
         }
 
         mPath.close()
